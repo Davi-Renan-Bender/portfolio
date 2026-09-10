@@ -1,32 +1,298 @@
 <!doctype html>
-
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio</title>
+
+    <title>Davi Renan Bender | Portfólio</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="my-name">
-      <h1>Davi Renan Bender</h1>
-    </div>
+    <!-- Efeito luminoso que acompanha o mouse -->
+    <div class="mouse-glow"></div>
 
-    <img src="wallpaper_portifolio.jpg" alt="wallpaper" class="wallpaper" />
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo"><span>&lt;</span>DRB<span>/&gt;</span></div>
 
-    <p id="apresentacao">
-      Olá, me chamo Davi, atualmente estou estudando Informática para Internet,
-      vivo em Cunha Porã/SC e estou no ensino médio.
-    </p>
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </nav>
 
-    <div class="botoes">
-      <button id="btn-apresentacao">Ocultar apresentação</button>
+      <button id="btn-tema" class="theme-button">☀</button>
+    </header>
 
-      <button id="btn-tema">Alterar tema</button>
-    </div>
+    <!-- HERO -->
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-subtitle">OLÁ, EU SOU</p>
 
-    <p id="mensagem"></p>
+          <h1>
+            Davi Renan
+            <span>Bender</span>
+          </h1>
+
+          <p class="hero-description">
+            Estudante de Informática para Internet, apaixonado por tecnologia,
+            desenvolvimento web e criação de soluções digitais.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projetos" class="button primary"> Ver meus projetos → </a>
+
+            <a href="#sobre" class="button secondary"> Conheça meu perfil </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div class="image-border">
+            <img src="wallpaper_portifolio.jpg" alt="Imagem de apresentação" />
+          </div>
+
+          <div class="floating-card card-one">&lt;/&gt;</div>
+
+          <div class="floating-card card-two">SQL</div>
+
+          <div class="floating-card card-three">JS</div>
+        </div>
+      </section>
+
+      <!-- LINHA DECORATIVA -->
+      <div class="scroll-line">
+        <span></span>
+      </div>
+
+      <!-- SOBRE -->
+      <section id="sobre" class="section reveal">
+        <div class="section-title">
+          <span>01.</span>
+          <h2>Sobre mim</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Olá! Meu nome é <strong>Davi Renan Bender</strong>. Atualmente
+              estudo Informática para Internet e estou no ensino médio.
+            </p>
+
+            <p>
+              Estou desenvolvendo meus conhecimentos em desenvolvimento web,
+              banco de dados, programação e criação de projetos.
+            </p>
+
+            <p>
+              Gosto de entender como as coisas funcionam por trás das interfaces
+              e transformar ideias em sistemas funcionais.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="terminal-top">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <div class="terminal-code">
+              <p><span class="green">const</span> estudante = {</p>
+
+              <p class="indent">
+                nome:
+                <span class="string"> "Davi Renan Bender" </span>,
+              </p>
+
+              <p class="indent">
+                área:
+                <span class="string"> "Informática para Internet" </span>,
+              </p>
+
+              <p class="indent">
+                foco:
+                <span class="string"> "Desenvolvimento Web" </span>
+              </p>
+
+              <p>};</p>
+
+              <p class="cursor">_</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HABILIDADES -->
+      <section id="habilidades" class="section reveal">
+        <div class="section-title">
+          <span>02.</span>
+          <h2>Habilidades</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-icon">&lt;/&gt;</div>
+
+            <h3>HTML</h3>
+
+            <p>Estruturação de páginas e criação de interfaces web.</p>
+
+            <div class="progress">
+              <span style="width: 80%"></span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">#</div>
+
+            <h3>CSS</h3>
+
+            <p>
+              Estilização, layouts responsivos, animações e interfaces modernas.
+            </p>
+
+            <div class="progress">
+              <span style="width: 75%"></span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">JS</div>
+
+            <h3>JavaScript</h3>
+
+            <p>Lógica de programação e interatividade em páginas web.</p>
+
+            <div class="progress">
+              <span style="width: 65%"></span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-icon">DB</div>
+
+            <h3>Banco de Dados</h3>
+
+            <p>
+              SQL, modelagem, tabelas, relacionamentos e manipulação de dados.
+            </p>
+
+            <div class="progress">
+              <span style="width: 60%"></span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section id="projetos" class="section reveal">
+        <div class="section-title">
+          <span>03.</span>
+          <h2>Projetos</h2>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-number">01</div>
+
+            <div class="project-content">
+              <p class="project-type">SISTEMA WEB</p>
+
+              <h3>EduWatch</h3>
+
+              <p>
+                Sistema para monitoramento do desempenho acadêmico dos
+                estudantes através de dados de notas, frequência e evolução.
+              </p>
+
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">02</div>
+
+            <div class="project-content">
+              <p class="project-type">E-COMMERCE</p>
+
+              <h3>Lume</h3>
+
+              <p>
+                Projeto de e-commerce com catálogo de produtos, pesquisa,
+                carrinho e armazenamento de dados no navegador.
+              </p>
+
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-number">03</div>
+
+            <div class="project-content">
+              <p class="project-type">PORTFÓLIO</p>
+
+              <h3>Meu Portfólio</h3>
+
+              <p>
+                Este próprio site, desenvolvido para apresentar minha
+                trajetória, habilidades e projetos.
+              </p>
+
+              <div class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section id="contato" class="contact reveal">
+        <div class="contact-content">
+          <p class="hero-subtitle">04. CONTATO</p>
+
+          <h2>
+            Vamos criar algo
+            <span>incrível.</span>
+          </h2>
+
+          <p>
+            Este portfólio ainda está em desenvolvimento, assim como minha
+            jornada na programação.
+          </p>
+
+          <button id="btn-mensagem" class="button primary">Dizer olá 👋</button>
+
+          <p id="mensagem"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Desenvolvido por
+        <strong>Davi Renan Bender</strong>
+      </p>
+
+      <p>&copy; <span id="ano"></span></p>
+    </footer>
 
     <script src="script.js"></script>
   </body>

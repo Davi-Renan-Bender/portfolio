@@ -1,47 +1,143 @@
-const apresentacao = document.getElementById("apresentacao");
-const btnApresentacao = document.getElementById("btn-apresentacao");
+/* ================================= */
+/* ELEMENTOS                        */
+/* ================================= */
+
+const body = document.body;
+
 const btnTema = document.getElementById("btn-tema");
+
+const btnMensagem = document.getElementById("btn-mensagem");
+
 const mensagem = document.getElementById("mensagem");
 
-let apresentacaoVisivel = true;
-let temaEscuro = true;
+const ano = document.getElementById("ano");
 
-// Mostrar / ocultar apresentação
-btnApresentacao.addEventListener("click", function () {
-  if (apresentacaoVisivel) {
-    apresentacao.style.display = "none";
-    btnApresentacao.textContent = "Mostrar apresentação";
-    apresentacaoVisivel = false;
+const mouseGlow = document.querySelector(".mouse-glow");
+
+/* ================================= */
+/* ANO AUTOMÁTICO                   */
+/* ================================= */
+
+ano.textContent = new Date().getFullYear();
+
+/* ================================= */
+/* TEMA CLARO / ESCURO              */
+/* ================================= */
+
+btnTema.addEventListener("click", function () {
+  body.classList.toggle("light");
+
+  if (body.classList.contains("light")) {
+    btnTema.textContent = "☾";
+
+    localStorage.setItem("tema", "claro");
   } else {
-    apresentacao.style.display = "block";
-    btnApresentacao.textContent = "Ocultar apresentação";
-    apresentacaoVisivel = true;
+    btnTema.textContent = "☀";
+
+    localStorage.setItem("tema", "escuro");
   }
 });
 
-// Alterar tema
-btnTema.addEventListener("click", function () {
-  if (temaEscuro) {
-    document.body.style.background =
-      "linear-gradient(135deg, #f2f2f2, #d9d9d9)";
+/* ================================= */
+/* SALVAR TEMA DO USUÁRIO           */
+/* ================================= */
 
-    document.body.style.color = "#111111";
+const temaSalvo = localStorage.getItem("tema");
 
-    btnTema.textContent = "Ativar tema escuro";
+if (temaSalvo === "claro") {
+  body.classList.add("light");
 
-    mensagem.textContent = "Tema claro ativado.";
+  btnTema.textContent = "☾";
+}
 
-    temaEscuro = false;
+/* ================================= */
+/* BOTÃO "DIZER OLÁ"                */
+/* ================================= */
+
+btnMensagem.addEventListener("click", function () {
+  mensagem.textContent = "Olá, Davi! 👋 Seu portfólio está ficando incrível!";
+});
+
+/* ================================= */
+/* EFEITO DO MOUSE                  */
+/* ================================= */
+
+document.addEventListener("mousemove", function (event) {
+  mouseGlow.style.left = event.clientX + "px";
+
+  mouseGlow.style.top = event.clientY + "px";
+});
+
+/* ================================= */
+/* ANIMAÇÃO AO DESCER A PÁGINA      */
+/* ================================= */
+
+const elementos = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+  },
+);
+
+elementos.forEach(function (elemento) {
+  observer.observe(elemento);
+});
+
+/* ================================= */
+/* EFEITO DE DIGITAÇÃO NO TERMINAL  */
+/* ================================= */
+
+const cursor = document.querySelector(".cursor");
+
+let piscando = true;
+
+setInterval(function () {
+  if (piscando) {
+    cursor.style.opacity = "0";
   } else {
-    document.body.style.background =
-      "linear-gradient(135deg, #021f0d, #043d17, #062f16)";
-
-    document.body.style.color = "#ffffff";
-
-    btnTema.textContent = "Alterar tema";
-
-    mensagem.textContent = "Tema escuro ativado.";
-
-    temaEscuro = true;
+    cursor.style.opacity = "1";
   }
+
+  piscando = !piscando;
+}, 500);
+
+/* ================================= */
+/* EFEITO 3D DOS CARDS              */
+/* ================================= */
+
+const cards = document.querySelectorAll(".skill-card, .project-card");
+
+cards.forEach(function (card) {
+  card.addEventListener("mousemove", function (event) {
+    const rect = card.getBoundingClientRect();
+
+    const x = event.clientX - rect.left;
+
+    const y = event.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -3;
+
+    const rotateY = ((x - centerX) / centerX) * 3;
+
+    card.style.transform = `perspective(700px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-5px)`;
+  });
+
+  card.addEventListener("mouseleave", function () {
+    card.style.transform = "";
+  });
 });
