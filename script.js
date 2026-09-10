@@ -1,6 +1,3 @@
-/* ================================= */
-/* ELEMENTOS                        */
-/* ================================= */
 
 const body = document.body;
 
@@ -14,15 +11,8 @@ const ano = document.getElementById("ano");
 
 const mouseGlow = document.querySelector(".mouse-glow");
 
-/* ================================= */
-/* ANO AUTOMÁTICO                   */
-/* ================================= */
-
 ano.textContent = new Date().getFullYear();
 
-/* ================================= */
-/* TEMA CLARO / ESCURO              */
-/* ================================= */
 
 btnTema.addEventListener("click", function () {
   body.classList.toggle("light");
@@ -38,9 +28,6 @@ btnTema.addEventListener("click", function () {
   }
 });
 
-/* ================================= */
-/* SALVAR TEMA DO USUÁRIO           */
-/* ================================= */
 
 const temaSalvo = localStorage.getItem("tema");
 
@@ -50,17 +37,12 @@ if (temaSalvo === "claro") {
   btnTema.textContent = "☾";
 }
 
-/* ================================= */
-/* BOTÃO "DIZER OLÁ"                */
-/* ================================= */
+
 
 btnMensagem.addEventListener("click", function () {
   mensagem.textContent = "Olá, Davi! 👋 Seu portfólio está ficando incrível!";
 });
 
-/* ================================= */
-/* EFEITO DO MOUSE                  */
-/* ================================= */
 
 document.addEventListener("mousemove", function (event) {
   mouseGlow.style.left = event.clientX + "px";
@@ -68,9 +50,7 @@ document.addEventListener("mousemove", function (event) {
   mouseGlow.style.top = event.clientY + "px";
 });
 
-/* ================================= */
-/* ANIMAÇÃO AO DESCER A PÁGINA      */
-/* ================================= */
+
 
 const elementos = document.querySelectorAll(".reveal");
 
@@ -91,9 +71,7 @@ elementos.forEach(function (elemento) {
   observer.observe(elemento);
 });
 
-/* ================================= */
-/* EFEITO DE DIGITAÇÃO NO TERMINAL  */
-/* ================================= */
+
 
 const cursor = document.querySelector(".cursor");
 
@@ -109,9 +87,6 @@ setInterval(function () {
   piscando = !piscando;
 }, 500);
 
-/* ================================= */
-/* EFEITO 3D DOS CARDS              */
-/* ================================= */
 
 const cards = document.querySelectorAll(".skill-card, .project-card");
 
